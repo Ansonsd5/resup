@@ -1,0 +1,11 @@
+.landing-wrapper {
+    margin: 0px 60px;
+    display: grid;
+    grid-template-columns: 35% 75%;
+    column-gap: 18px;
+
+    .input-conatiner {
+        padding: 24px 16px;
+
+    }
+}

@@ -1,0 +1,45 @@
+@import '../../utils/variables.scss';
+.input-wrapper {
+    .fieldset-container {
+        border: 1px solid $COLOR-LIGHT_TEXT;
+        border-radius: 8px;
+        // padding: 8px 16px;
+        position: relative;
+        line-height: 8px;
+        padding-bottom: 8px;
+
+        input{
+            all: unset;
+            width: 90%;
+            color: $COLOR-INPUT-TEXT;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 24px; 
+            letter-spacing: 0.5px;
+            padding-left: 16px;
+        }
+        input::placeholder{
+            color: $COLOR-LIGHT_TEXT;
+            font-size: $fontSize16;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px; 
+            letter-spacing: 0.5px;
+        }
+
+        .legend-lable{
+            font-size: $fontSize16;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px; 
+            letter-spacing: 0.4px;
+            margin-left: 12px;
+            padding: 8px;
+            color: $COLOR-LIGHT_TEXT;
+            
+        }
+        
+    }
+
+}
