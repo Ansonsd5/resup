@@ -1,0 +1,25 @@
+@import "../../utils/variables.scss";
+
+.empty-conatiner-wrapper{
+
+    .empty-hero-img{
+        align-self: last baseline;
+    }
+    .empty-conatiner-textwrapper{
+        align-self: first baseline;
+    }
+    
+    .empty-conatiner-header{
+        color:$COLOR-PRIMARY;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center;
+    }
+    
+
+}
+
+.text-center{
+    align-self: baseline;
+}
