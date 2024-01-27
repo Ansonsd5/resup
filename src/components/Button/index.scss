@@ -1,0 +1,15 @@
+@import "../../utils/variables.scss";
+
+.app-button {
+  background: linear-gradient(134deg, $COLOR-PURPLE 0%, $COLOR-BLUE 161.62%);
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  color: $COLOR-WHITE;
+  font-family: Satoshi;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

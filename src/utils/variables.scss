@@ -1,0 +1,36 @@
+$COLOR-WHITE: #ffffff;
+$COLOR-PURPLE: #bc0cd8;
+$COLOR-BLUE: #0047ff;
+$COLOR-GREY: #9792a3;
+
+$COLOR-PRIMARY: #550172;
+
+$COLOR-LABEL: #464646;
+$COLOR-LIGHT-TEXT: #9792a3;
+
+$COLOR-INPUT-TEXT: #383838;
+
+$COLOR-SHADOW: #0000001f;
+
+$fontSize8: 8px;
+$fontSize16: 16px;
+$fontSize18: 18px;
+$fontSize20: 20px;
+
+:export {
+  $COLOR-PRIMARY: $COLOR-PRIMARY;
+  $COLOR-LABEL: $COLOR-LABEL;
+  $COLOR-WHITE: $COLOR-WHITE;
+  $COLOR-PURPLE: $COLOR-PURPLE;
+  $COLOR-BLUE: $COLOR-BLUE;
+  $COLOR-GREY: $COLOR-GREY;
+  $COLOR-SHADOW: $COLOR-SHADOW;
+  $COLOR-INPUT-TEXT: $COLOR-INPUT-TEXT;
+  $COLOR-LIGHT-TEXT: $COLOR-LIGHT-TEXT;
+
+  $fontSize8: $fontSize8;
+  $fontSize16: $fontSize16;
+  $fontSize18: $fontSize18;
+  $fontSize20: $fontSize20;
+
+}
