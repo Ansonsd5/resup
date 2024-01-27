@@ -1,5 +1,6 @@
 import React from 'react'
-import InputWrap from '../InputWrap'
+import InputWrap from '../InputWrap';
+import './index.scss';
 
 const Textbox = ({
     type,
