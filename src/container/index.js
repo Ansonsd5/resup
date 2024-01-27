@@ -1,25 +1,27 @@
-import React from 'react'
-import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Landing from './Landing';
-import Header from '../components/Header';
-
+import React, { useEffect } from "react";
+import {
+  BrowserRouter,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import Landing from "./Landing";
+import Header from "../components/Header";
+import appStore from "../utils/appStore";
+import { Provider } from "react-redux";
 
 const Container = () => {
-   const appRouter = createBrowserRouter([
+  const appRouter = createBrowserRouter([
     {
-        path : "/",
-        element : <Landing/>
+      path: "/",
+      element: <Landing />,
     },
-  
-   ]
-
-   )
-  return (<>
-  <Header/>
-<RouterProvider router={appRouter}/>
-  </>
-    
-  )
-}
+  ]);
+  return (
+    <Provider store={appStore}>
+      <Header />
+      <RouterProvider router={appRouter} />
+    </Provider>
+  );
+};
 
 export default Container;

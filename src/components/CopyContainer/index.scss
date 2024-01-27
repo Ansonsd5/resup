@@ -1,0 +1,32 @@
+@import "../../utils/variables.scss";
+.copy-container {
+  .label-contaier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    span {
+      color: $COLOR-INPUT-TEXT;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    img {
+      width: 32px;
+      height: 32px;
+      align-items: baseline;
+    }
+  }
+
+  .content-body {
+    background: $COLOR-LIGHT-BLUE;
+    color: $COLOR-LABEL;
+    padding: 16px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 8px;
+  }
+}

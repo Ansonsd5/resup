@@ -1,0 +1,30 @@
+@import "../../utils/variables.scss";
+.carousel {
+  display: grid;
+  grid-template-columns: 20px auto 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  transition: all 0.25ms ease-in;
+
+  img {
+    width: auto;
+    height: auto;
+    scale: (1.25);
+  }
+
+  .left-arrow {
+    transform: rotate(180deg);
+    margin-top: -3px;
+  }
+
+  .template-label {
+    color: $COLOR-PRIMARY;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: fit-content;
+  }
+}
