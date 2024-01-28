@@ -8,10 +8,15 @@
   padding: 16px;
   border-radius: 8px;
   color: $COLOR-WHITE;
-  // font-family: Satoshi;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   z-index: 11;
   transition: all 0.35ms ease-in;
+  
+}
+
+.app-button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
 }
