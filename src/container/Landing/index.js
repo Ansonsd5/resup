@@ -7,15 +7,15 @@ import { formDataConfig } from "../../utils/config";
 import TemplateContainer from "../../components/TemplateContainer";
 import textConstants from "../../utils/textConstants";
 import commonFunc from "../../action";
-import "./index.scss";
 import { addTemplate } from "../../utils/templateSlice";
+import "./index.scss";
+import CopyContainer from "../../components/CopyContainer";
 
 const Landing = () => {
   const dispatch = useDispatch();
-
   const formData = useSelector((state) => state.form.formData);
-  const templateData = useSelector((state) => state.template.templateData);
-  const isValidForm = false;
+  const templateData = useSelector((state) => state.template);
+
 
   const onChangeEvent = (e, content) => {
     let inputValue = "";
@@ -34,8 +34,6 @@ const Landing = () => {
     dispatch(updateFormData({ ...content, fieldName: content.id }));
   };
 
-  console.log("templateData", templateData);
-
   const renderFormFields = (content) => {
     let props = { ...content };
     let onChange = (e) => onChangeEvent(e, content);
@@ -53,39 +51,35 @@ const Landing = () => {
     return <Textbox {...props} />;
   };
 
-  const handleTextbox = () => {
-    console.log("kk");
-  };
+
+
+  const apiCall = async (searchQuery) => {
+    try {
+        const getData = await commonFunc.makeApiCall(searchQuery);
+        const dataToFilter = getData.choices[0].message.content;
+        const cleanData = commonFunc.filterGptData(dataToFilter);
+        console.log('cleanData',cleanData);
+
+        if(!cleanData) return;
+        dispatch(addTemplate(cleanData));
+        console.log("dispatch sucess");
+    } catch (error) {
+        console.error("Error occurred:", error);
+    }
+};
+
+
 
   const generateTemplate = () => {
     let personalDeatils = Object.keys(formData).map(
       (key) => ` ${key} is ${formData[key]} `
     );
     let gptFeedPart2 = personalDeatils.toString();
-    console.log(gptFeedPart2);
-
-    setTimeout(async () => {
-      const apiData = await commonFunc.makeApiCall(
-        `${textConstants.GPT_FEED.gptPrompt} ${gptFeedPart2}`
-      );
-      if(apiData){
-       
-          let wholeData = (apiData?.choices[0]?.message);
-          const requiredData = JSON.stringify(wholeData);
-
-          console.log(requiredData);
-          
-          // let objFdesiredObjectsormat =[];
-
-          // requiredData.map(referral => {
-          //   sub1: referral.sub,
-          //   body: referral.reffralmsg
-          //   desiredObjects.push(desiredObject);
-          // })
-      
-
-    }}, 1000);
+    const searchQuery = `${textConstants.GPT_FEED.gptPrompt} ${gptFeedPart2}`;
+    apiCall(searchQuery);
   };
+
+
   return (
     <div className="sm:grid sm:mx-4 sm:grid-cols-2 grid-row">
       <article className="input-conatiner ">
@@ -101,7 +95,7 @@ const Landing = () => {
           Generate
         </Button>
       </article>
-      <TemplateContainer />
+      <TemplateContainer templateData={templateData}/>
       <article></article>
     </div>
   );

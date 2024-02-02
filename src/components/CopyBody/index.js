@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { arrow, copyicon } from "../../images";
 import "./index.scss";
 
-const CopyContainer = ({ data }) => {
+const CopyBody = ({ data }) => {
   const contentRef = useRef();
 
   const handleCopy = () =>{
@@ -18,7 +18,7 @@ const CopyContainer = ({ data }) => {
       {data && (
         <div className="copy-container ">
           <div className="label-contaier ">
-            <span>Subject</span>
+            <span>Body </span>
              <img src={copyicon} onClick={handleCopy} alt="copy" />
           </div>
             <div className="body-container  text-base grid grid-flow-col content-body bg-red-600"
@@ -31,4 +31,4 @@ const CopyContainer = ({ data }) => {
   );
 };
 
-export default CopyContainer;
+export default CopyBody;

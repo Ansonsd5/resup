@@ -1,23 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    templateData : {},
-}
+const initialState = [];
 
 const templateSlice = createSlice({
     name : 'template',
     initialState,
     reducers : {
         addTemplate(state,action){
-            const {key, value} = action.payload
-       return {
-        ...state,
-        templateData : {
-            ...state.templateData,
-            [key] :value
-
-        }
-       }
+       return action.payload
         }
     }
 

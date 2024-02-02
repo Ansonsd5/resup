@@ -4,7 +4,8 @@ import { emptyheroimg } from '../../images';
 import EmailTemplate from '../EmailTemplate';
 
 const TemplateContainer = (props) => {
-  const {templateData =true } = props;
+  const {templateData } = props;
+
   return (<>
      {templateData ? <EmailTemplate />: <EmptyConatiner  bgImage={emptyheroimg}/>}
     </>

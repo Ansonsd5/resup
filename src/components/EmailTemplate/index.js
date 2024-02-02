@@ -2,14 +2,28 @@ import React from "react";
 import Carousel from "../Carousel";
 import { arrow } from "../../images";
 import CopyContainer from "../CopyContainer";
-const data ={ label : "Subject",content : "This is the email body plz update"};
-const dataBody ={ label : "Body",content : "This is the email body This is the email body This is the email body This is the email bodyThis is the email body "}
+import { useSelector } from "react-redux";
+import CopyBody from "../CopyBody";
+
 
 const EmailTemplate = () => {
+  const templateData = useSelector((store) => store.template);
   return (
     <div>
-        <CopyContainer data={data}/>
-        <CopyContainer data={dataBody}/>
+      {
+        templateData?.tamplates?.map((subandbody)=>{
+          Object.keys(subandbody).map(ele =>{
+            if(ele === 'sub'){
+              debugger
+            return  <CopyContainer data={subandbody[ele]} />
+            }else if( ele === 'referralmsg'){
+             return <div>{ele}</div>
+            }
+          })
+        })
+
+      }
+    
         
       <Carousel 
       data={["s", "s", "s"]} 
