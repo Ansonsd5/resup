@@ -2,16 +2,22 @@
 
 .app-button {
   background: linear-gradient(134deg, $COLOR-PURPLE 0%, $COLOR-BLUE 161.62%);
+  // background: linear-gradient(140deg,#40b8ff 20%,#00ff97 43%,#ff007c);
   font-size: 18px;
   width: 100%;
   text-align: center;
   padding: 16px;
   border-radius: 8px;
   color: $COLOR-WHITE;
-  // font-family: Satoshi;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   z-index: 11;
   transition: all 0.35ms ease-in;
+  
+}
+
+.app-button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
 }

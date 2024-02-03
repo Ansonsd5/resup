@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import "./index.scss";
+import CopyBody from "../CopyBody";
+import CopyContainer from "../CopyContainer";
 
 const Carousel = ({ data, leftArrow, rightArrow }) => {
   const [activeItem, setActiveItem] = useState(0);
@@ -23,34 +25,43 @@ const Carousel = ({ data, leftArrow, rightArrow }) => {
   }
 
   return (
-    <div className="carousel">
-      <img
-        className="arrow left-arrow"
-        src={leftArrow}
-        alt="Previous"
-        onClick={() => handleClick("left")}
-        aria-label="Previous"
-        role="button"
-      />
-      <div className="carousel-content">
-        <div className="template-label">{`Template ${activeItem + 1}/${data.length}`}</div>
+    <>
+      <div className=" ">
+        <CopyContainer data={data[activeItem].sub} />
+        <CopyBody data={data[activeItem].body} />
+
+        <div className="carousel">
+          <img
+            className="arrow left-arrow"
+            src={leftArrow}
+            alt="Previous"
+            onClick={() => handleClick("left")}
+            aria-label="Previous"
+            role="button"
+          />
+          <div className="carousel-content">
+            <div className="template-label">{`Template ${activeItem + 1}/${
+              data.length
+            }`}</div>
+          </div>
+          <img
+            className="arrow"
+            src={rightArrow}
+            alt="Next"
+            onClick={() => handleClick("right")}
+            aria-label="Next"
+            role="button"
+          />
+        </div>
       </div>
-      <img
-        className="arrow"
-        src={rightArrow}
-        alt="Next"
-        onClick={() => handleClick("right")}
-        aria-label="Next"
-        role="button"
-      />
-    </div>
+    </>
   );
 };
 
 Carousel.propTypes = {
   data: PropTypes.array.isRequired,
-  leftArrow: PropTypes.string.isRequired, 
-  rightArrow: PropTypes.string.isRequired, 
+  leftArrow: PropTypes.string.isRequired,
+  rightArrow: PropTypes.string.isRequired,
 };
 
 export default Carousel;
