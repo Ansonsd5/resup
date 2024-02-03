@@ -15,7 +15,7 @@ const EMPTY_LABEL = {
 };
 
 const GPT_FEED  = {
-  gptPrompt : "prioritizing efficiency in API call time Act as expert and catchy email writers, Assume I am requesting for a refferal and request as me, make use of the personal information provided, articulate a best refferal message. Give me 4 different refferal messages which should have 130 to 170 word count,  in object form which differ from each other and the object structure sholud be as follows   {sub: subject one, reffralmsg: reffral msg1} give it in a way that i have a  where i can map over it easily, Please note give the object as per exapmle json, fill in the details provided where ever neccesary"
+  gptPrompt : "prioritizing efficiency in API call time Act as expert and catchy email writers, Assume I am requesting for a refferal and request as me, make use of the personal information provided, articulate a best refferal message. Give me 4 different refferal messages which should have 130 to 170 word count,  in object form which differ from each other and the object structure sholud be as follows   {sub: subject one, body: reffral msg1} give it in a way that i have a  where i can map over it easily, Please note give the object as per exapmle json, fill in the details provided where ever neccesary"
 
 }
 

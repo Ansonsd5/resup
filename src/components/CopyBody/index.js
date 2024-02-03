@@ -21,7 +21,7 @@ const CopyBody = ({ data }) => {
             <span>Body </span>
              <img src={copyicon} onClick={handleCopy} alt="copy" />
           </div>
-            <div className="body-container  text-base grid grid-flow-col content-body bg-red-600"
+            <div className="body-container  text-base grid grid-flow-col content-body"
             ref={contentRef}
             >{data}</div>
         </div>

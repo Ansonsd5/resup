@@ -39,10 +39,12 @@ const arrayOfObjects = matches?.map(match => {
 
 
 const filteredArrayOfObjects = arrayOfObjects.filter(Boolean);
-const tempOBJ = { tamplates: filteredArrayOfObjects };
+const tempOBJ =  filteredArrayOfObjects;
 return tempOBJ;
 
 }
+
+
 
 const commonFunc = {
   makeApiCall,

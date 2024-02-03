@@ -16,7 +16,7 @@ const Textbox = ({
 }) => {
   return (
     <div className="textbox-wrapper my-3">
-      <InputWrap label={label}>
+      <InputWrap label={label} isMandatory={isMandatory}>
         {onChange}
         <input
           type={type}
