@@ -6,7 +6,6 @@ import './index.scss';
 const Button = ({
   children,
   onClick,
-  type,
   variant,
   disabled,
   className,
@@ -27,7 +26,6 @@ const Button = ({
   return (
     <button
       className={buttonClasses}
-      type={type}
       onClick={onClick}
       disabled={disabled}
       lable ={lable}
@@ -40,7 +38,6 @@ const Button = ({
 
 Button.defaultProps = {
   onClick: () => {},
-  type: 'button',
   variant: 'primary',
   disabled: false,
   className: 'app-button',
