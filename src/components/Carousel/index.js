@@ -26,11 +26,11 @@ const Carousel = ({ data, leftArrow, rightArrow }) => {
 
   return (
     <>
-      <div className=" ">
+      <div className="p-0 sm:pl-4 my-5 sm:mt-0">
         <CopyContainer data={data[activeItem].sub} />
         <CopyBody data={data[activeItem].body} />
 
-        <div className="carousel">
+        <div className="carousel py-4">
           <img
             className="arrow left-arrow"
             src={leftArrow}

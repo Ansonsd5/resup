@@ -1,7 +1,6 @@
 import React from 'react'
 import EmptyConatiner from '../EmptyConatiner';
 import { arrow, emptyheroimg } from '../../images';
-import EmailTemplate from '../EmailTemplate';
 import Carousel from '../Carousel';
 import { templateConfigData } from '../../utils/config';
 
