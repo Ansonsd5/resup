@@ -5,7 +5,7 @@ import "./index.scss";
 const EmptyConatiner = (props) => {
   const { bgImage } = props;
   return (
-    <div className="empty-conatiner-wrapper   items-center align-middle sm:grid">
+    <div className="empty-conatiner-wrapper   items-center align-middle sm:grid mt-5 sm:mt-0">
       <img
         className="empty-hero-img mx-auto"
         loading="lazy"

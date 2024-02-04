@@ -45,6 +45,7 @@ const Landing = () => {
       // hadleDropDown: onChange,
       // handleInputChange: onDropdownFilterChange,
       onChange: onChange,
+      key : content.id,
       // dropdownLoadData: onDropdownClick,
     };
 
@@ -81,7 +82,7 @@ const Landing = () => {
 
 
   return (
-    <div className="sm:grid sm:mx-4 sm:grid-cols-2 grid-row">
+    <div className="sm:grid sm:mx-4 sm:grid-cols-2 grid-row px-4">
       <article className="input-conatiner ">
         <span className="font-bold block">Enter Details</span>
         <span>Enter your details to generate template</span>
@@ -91,7 +92,7 @@ const Landing = () => {
           return content.visible && renderFormFields(content);
         })}
 
-        <Button onClick={generateTemplate} type={SubmitEvent}>
+        <Button onClick={generateTemplate} type={SubmitEvent} className={'app-button mt-3'}>
           Generate
         </Button>
       </article>
