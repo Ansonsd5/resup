@@ -37,22 +37,16 @@ const Landing = () => {
   const renderFormFields = (content) => {
     let props = { ...content };
     let onChange = (e) => onChangeEvent(e, content);
-    // let onDropdownFilterChange = (e) => handleDropdownFilter(e, content);
-    // let onDropdownClick = () => onDropdownClickHandle(content);
-
+   
     props = {
       ...props,
-      // hadleDropDown: onChange,
-      // handleInputChange: onDropdownFilterChange,
       onChange: onChange,
       key : content.id,
-      // dropdownLoadData: onDropdownClick,
+
     };
 
     return <Textbox {...props} />;
   };
-
-
 
   const apiCall = async (searchQuery) => {
     try {
