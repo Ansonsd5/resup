@@ -42,6 +42,7 @@ const Landing = () => {
       ...props,
       onChange: onChange,
       key : content.id,
+
     };
 
     return <Textbox {...props} />;
