@@ -38,7 +38,7 @@ const arrayOfObjects = matches?.map(match => {
 });
 
 
-const filteredArrayOfObjects = arrayOfObjects.filter(Boolean);
+const filteredArrayOfObjects = arrayOfObjects?.filter(Boolean);
 const tempOBJ =  filteredArrayOfObjects;
 return tempOBJ;
 

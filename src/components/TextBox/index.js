@@ -18,7 +18,8 @@ const Textbox = ({
     <div className="textbox-wrapper my-3">
       <InputWrap label={label} isMandatory={isMandatory}>
       
-        <input
+        <input 
+        className="input-value"
           type={type}
           value={value}
           placeholder={placeholder}
