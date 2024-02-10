@@ -16,10 +16,10 @@ const Landing = () => {
   const formData = useSelector((state) => state.form.formData);
   const templateData = useSelector((state) => state.template);
 
-
   const onChangeEvent = (e, content) => {
+    
     let inputValue = "";
-
+    inputValue = e.target.value;
     if (content.id === "fullname") {
       if (textConstants.REGEX.alphabetsOnly.test(e.target.value)) {
         content.value = inputValue;
@@ -28,7 +28,17 @@ const Landing = () => {
       }
     }
 
-    inputValue = e.target.value;
+    if(content.id === 'mobilenumber' || content.id === 'workexperience' ){
+
+      if(inputValue > content.maxLength){
+
+        inputValue = inputValue.slice(0, content.maxLength);
+       
+        inputValue.replace(/[0-9]/g, "");
+      }
+    }
+
+    
     content.value = inputValue;
 
     dispatch(updateFormData({ ...content, fieldName: content.id }));
@@ -37,12 +47,11 @@ const Landing = () => {
   const renderFormFields = (content) => {
     let props = { ...content };
     let onChange = (e) => onChangeEvent(e, content);
-   
+
     props = {
       ...props,
       onChange: onChange,
-      key : content.id,
-
+      key: content.id,
     };
 
     return <Textbox {...props} />;
@@ -50,20 +59,29 @@ const Landing = () => {
 
   const apiCall = async (searchQuery) => {
     try {
-        const getData = await commonFunc.makeApiCall(searchQuery);
-        const dataToFilter = getData.choices[0].message.content;
-        const cleanData = commonFunc.filterGptData(dataToFilter);
-        console.log('cleanData',cleanData);
+      const getData = await commonFunc.makeApiCall(searchQuery);
+      const dataToFilter = getData.choices[0].message.content;
+      const cleanData = commonFunc.filterGptData(dataToFilter);
+      console.log("cleanData", cleanData);
 
-        if(!cleanData) return;
-        dispatch(addTemplate(cleanData));
-        console.log("dispatch sucess");
+      if (!cleanData) return;
+      dispatch(addTemplate(cleanData));
+      console.log("dispatch sucess");
     } catch (error) {
-        console.error("Error occurred:", error);
+      console.error("Error occurred:", error);
     }
-};
+  };
 
-
+  const validForm = (formData) => {
+    if (
+      !Object.values(formData).includes('') &&
+      Object.values(formData).length === textConstants.NO_FIELDS
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   const generateTemplate = () => {
     let personalDeatils = Object.keys(formData).map(
@@ -73,7 +91,6 @@ const Landing = () => {
     const searchQuery = `${textConstants.GPT_FEED.gptPrompt} ${gptFeedPart2}`;
     apiCall(searchQuery);
   };
-
 
   return (
     <div className="sm:grid sm:mx-4 sm:grid-cols-2 grid-row px-4">
@@ -86,11 +103,16 @@ const Landing = () => {
           return content.visible && renderFormFields(content);
         })}
 
-        <Button onClick={generateTemplate} type={SubmitEvent} className={'app-button mt-3'}>
+        <Button
+          onClick={generateTemplate}
+          type={SubmitEvent}
+          className={"app-button mt-3"}
+          disabled={formData && validForm(formData)}
+        >
           Generate
         </Button>
       </article>
-      <TemplateContainer templateData={templateData}/>
+      <TemplateContainer templateData={templateData} />
       <article></article>
     </div>
   );

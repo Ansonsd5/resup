@@ -13,19 +13,22 @@ const Textbox = ({
   id,
   isMandatory,
   label,
+  isyears
 }) => {
   return (
     <div className="textbox-wrapper my-3">
-      <InputWrap label={label} isMandatory={isMandatory}>
+      {console.log("years", isyears)}
+      <InputWrap label={label} isMandatory={isMandatory} isyears={isyears}>
       
         <input 
-        className="input-value"
+          className="input-value"
           type={type}
           value={value}
           placeholder={placeholder}
           maxLength={maxLength}
           onChange={onChange}
         />
+        {/* {isyears && <span>years</span>} */}
       </InputWrap>
     </div>
   );
