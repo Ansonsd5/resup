@@ -6,6 +6,7 @@ const INPUT_TYPE = {
 const REGEX = {
   nameRegex : /^[A-Za-z]+(?:\s[A-Za-z]+)*$/,
   alphabetsOnly: /^[a-zA-Z]+$/,
+  numbersWithoute: /[^0-9]/g,
 
 };
 

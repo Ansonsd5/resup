@@ -9,7 +9,6 @@ import textConstants from "../../utils/textConstants";
 import commonFunc from "../../action";
 import { addTemplate } from "../../utils/templateSlice";
 import "./index.scss";
-import CopyContainer from "../../components/CopyContainer";
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -17,7 +16,6 @@ const Landing = () => {
   const templateData = useSelector((state) => state.template);
 
   const onChangeEvent = (e, content) => {
-    
     let inputValue = "";
     inputValue = e.target.value;
     if (content.id === "fullname") {
@@ -28,17 +26,15 @@ const Landing = () => {
       }
     }
 
-    if(content.id === 'mobilenumber' || content.id === 'workexperience' ){
-
-      if(inputValue > content.maxLength){
-
+    if (content.id === "mobilenumber" || content.id === "workexperience") {
+      if (inputValue.length <= content.maxLength) {
         inputValue = inputValue.slice(0, content.maxLength);
-       
-        inputValue.replace(/[0-9]/g, "");
+        inputValue = inputValue.replace(
+          textConstants.REGEX.numbersWithoute,
+          ""
+        );
       }
     }
-
-    
     content.value = inputValue;
 
     dispatch(updateFormData({ ...content, fieldName: content.id }));
@@ -73,10 +69,14 @@ const Landing = () => {
   };
 
   const validForm = (formData) => {
+
+  
+
     if (
-      !Object.values(formData).includes('') &&
+      !Object.values(formData).includes("") &&
       Object.values(formData).length === textConstants.NO_FIELDS
     ) {
+
       return false;
     } else {
       return true;
