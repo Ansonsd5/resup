@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import Textbox from "../../components/TextBox";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +14,7 @@ const Landing = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form.formData);
   const templateData = useSelector((state) => state.template);
+  const [loader,setLoader] = useState(false);
 
   const onChangeEvent = (e, content) => {
     let inputValue = "";
@@ -40,6 +41,11 @@ const Landing = () => {
     dispatch(updateFormData({ ...content, fieldName: content.id }));
   };
 
+  useEffect(()=>{
+    console.log("after apidatd comes");
+    setLoader(false);
+        },[templateData])
+
   const renderFormFields = (content) => {
     let props = { ...content };
     let onChange = (e) => onChangeEvent(e, content);
@@ -54,6 +60,9 @@ const Landing = () => {
   };
 
   const apiCall = async (searchQuery) => {
+
+    setLoader(!loader);
+    console.log('loader now',loader);
     try {
       const getData = await commonFunc.makeApiCall(searchQuery);
       const dataToFilter = getData.choices[0].message.content;
@@ -66,7 +75,8 @@ const Landing = () => {
     } catch (error) {
       console.error("Error occurred:", error);
     }
-  };
+    
+    console.log(loader,"loader ater");  };
 
   const validForm = (formData) => {
 
@@ -82,6 +92,10 @@ const Landing = () => {
       return true;
     }
   };
+
+  useEffect(()=>{
+  console.log(getComputedStyle);
+  },[])
 
   const generateTemplate = () => {
     let personalDeatils = Object.keys(formData).map(
