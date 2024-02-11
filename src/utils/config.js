@@ -1,4 +1,4 @@
-import textConstants from "./textConstants"
+import allTextConstants from "./textConstants";
 const skills = [
     "Object-Oriented Programming (OOP)",
     "Programming Languages",
@@ -25,7 +25,7 @@ const skills = [
   const formDataConfig = {
     fullName: {
         id: 'fullname',
-        inputType: textConstants.INPUT_TYPE.TEXTBOX,
+        inputType: allTextConstants.INPUT_TYPE.TEXTBOX,
         label: 'Enter full name',
         maxLength: 50,
         isError: true,
@@ -41,7 +41,7 @@ const skills = [
     },
     targetRole: {
         id: 'targetrole',
-        inputType: textConstants.INPUT_TYPE.TEXTBOX,
+        inputType: allTextConstants.INPUT_TYPE.TEXTBOX,
         label: 'Role you are looking for',
         maxLength: 50,
         isError: true,
@@ -54,7 +54,7 @@ const skills = [
     },
     targetCompany: {
         id: 'targetcompany',
-        inputType: textConstants.INPUT_TYPE.TEXTBOX,
+        inputType: allTextConstants.INPUT_TYPE.TEXTBOX,
         label: 'Target company name',
         maxLength: 50,
         isError: true,
@@ -69,7 +69,7 @@ const skills = [
     },
     workExperience: {
         id: 'workexperience',
-        inputType: textConstants.INPUT_TYPE.TEXTBOX,
+        inputType: allTextConstants.INPUT_TYPE.TEXTBOX,
         label: 'Work experience in years',
         maxLength: 2,
         isError: true,
@@ -83,7 +83,7 @@ const skills = [
     },
     mobileNumber: {
         id: 'mobilenumber',
-        inputType: textConstants.INPUT_TYPE.TEXTBOX,
+        inputType: allTextConstants.INPUT_TYPE.TEXTBOX,
         label: 'Enter valid mobilenumber',
         maxLength: 10,
         value: '',
@@ -97,7 +97,7 @@ const skills = [
     },
     skills: {
         id: 'skills',
-        inputType: textConstants.INPUT_TYPE.TEXTBOX,
+        inputType: allTextConstants.INPUT_TYPE.TEXTBOX,
         label: 'Add skills',
         maxLength: 100,
         isError: true,

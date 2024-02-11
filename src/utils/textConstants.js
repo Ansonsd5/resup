@@ -21,4 +21,7 @@ const GPT_FEED  = {
 }
 
 const NO_FIELDS = 6;
-export default { INPUT_TYPE, EMPTY_LABEL, REGEX,GPT_FEED, NO_FIELDS };
+
+const allTextConstants = { INPUT_TYPE, EMPTY_LABEL, REGEX, GPT_FEED, NO_FIELDS };
+
+export default allTextConstants;

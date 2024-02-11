@@ -22,7 +22,7 @@ const filterGptData = (response) =>{
   const combinedString = temp.join('');
 
 
-const matches = combinedString.match(/\{[^\}]*\}/g);
+const matches = combinedString.match(/\{[^\}]*}/g);
 
 
 const arrayOfObjects = matches?.map(match => {

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { arrow, copyicon } from "../../images";
+import { copyicon } from "../../images";
 import "./index.scss";
 
 const CopyBody = ({ data }) => {
