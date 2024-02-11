@@ -3,6 +3,7 @@ import userReducer from './userSlice';
 import formReducer from './formSlice';
 import templateReducer from './templateSlice';
 import landingReducer from './landingSlice';
+import appSlice from './appSlice';
 
 
 const appStore =  configureStore({
@@ -11,6 +12,7 @@ const appStore =  configureStore({
         form: formReducer,
         template : templateReducer,
         landing : landingReducer,
+        app : appSlice,
 
     },
   })
