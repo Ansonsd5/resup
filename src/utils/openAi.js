@@ -1,10 +1,11 @@
 import OpenAI from "openai";
-import { GPT_KEY } from "../common/constants";
+import { GPT_KEY } from "./textConstants";
+
 
 
 
 const openai = new OpenAI({
-    apiKey: GPT_KEY, 
+    apiKey: GPT_KEY,
     dangerouslyAllowBrowser : true,
   });
 

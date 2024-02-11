@@ -22,6 +22,9 @@ const GPT_FEED  = {
 
 const NO_FIELDS = 6;
 
+export const GPT_KEY = process.env.REACT_APP_GPT_KEY;
+
+
 const allTextConstants = { INPUT_TYPE, EMPTY_LABEL, REGEX, GPT_FEED, NO_FIELDS };
 
 export default allTextConstants;
