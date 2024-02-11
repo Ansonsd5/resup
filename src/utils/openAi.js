@@ -1,10 +1,15 @@
 import OpenAI from "openai";
-import { GPT_KEY } from "../common/constants";
+import { GPT_KEY } from "./textConstants";
+
+const key = GPT_KEY;
 
 
+if (!key) {
+  throw new Error('The OPENAI_API_KEY is missing or empty.');
+}
 
 const openai = new OpenAI({
-    apiKey: GPT_KEY, 
+    apiKey: key,
     dangerouslyAllowBrowser : true,
   });
 

@@ -5,11 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateFormData } from "../../utils/formSlice";
 import { formDataConfig } from "../../utils/config";
 import TemplateContainer from "../../components/TemplateContainer";
-import textConstants from "../../utils/textConstants";
 import commonFunc from "../../action";
 import { addTemplate } from "../../utils/templateSlice";
+import allTextConstants from "../../utils/textConstants";
 import "./index.scss";
-
 const Landing = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form.formData);
@@ -20,7 +19,7 @@ const Landing = () => {
     let inputValue = "";
     inputValue = e.target.value;
     if (content.id === "fullname") {
-      if (textConstants.REGEX.alphabetsOnly.test(e.target.value)) {
+      if (allTextConstants.REGEX.alphabetsOnly.test(e.target.value)) {
         content.value = inputValue;
       } else {
         e.preventDefault();
@@ -31,7 +30,7 @@ const Landing = () => {
       if (inputValue.length <= content.maxLength) {
         inputValue = inputValue.slice(0, content.maxLength);
         inputValue = inputValue.replace(
-          textConstants.REGEX.numbersWithoute,
+          allTextConstants.REGEX.numbersWithoute,
           ""
         );
       }
@@ -84,7 +83,7 @@ const Landing = () => {
 
     if (
       !Object.values(formData).includes("") &&
-      Object.values(formData).length === textConstants.NO_FIELDS
+      Object.values(formData).length === allTextConstants.NO_FIELDS
     ) {
 
       return false;
@@ -102,7 +101,7 @@ const Landing = () => {
       (key) => ` ${key} is ${formData[key]} `
     );
     let gptFeedPart2 = personalDeatils.toString();
-    const searchQuery = `${textConstants.GPT_FEED.gptPrompt} ${gptFeedPart2}`;
+    const searchQuery = `${allTextConstants.GPT_FEED.gptPrompt} ${gptFeedPart2}`;
     apiCall(searchQuery);
   };
 

@@ -2,7 +2,6 @@ import React from 'react'
 import EmptyConatiner from '../EmptyConatiner';
 import { arrow, emptyheroimg } from '../../images';
 import Carousel from '../Carousel';
-import { templateConfigData } from '../../utils/config';
 
 const TemplateContainer = (props) => {
   const {templateData } = props;

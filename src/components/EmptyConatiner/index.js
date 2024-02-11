@@ -1,5 +1,5 @@
 import React from "react";
-import textConstants from "../../utils/textConstants";
+import allTextConstants from "../../utils/textConstants";
 import "./index.scss";
 
 const EmptyConatiner = (props) => {
@@ -15,10 +15,10 @@ const EmptyConatiner = (props) => {
 
       <article className="empty-conatiner-textwrapper mx-auto text-center p-4">
         <h3 className="empty-conatiner-header">
-          {textConstants.EMPTY_LABEL.HEADER}
+          {allTextConstants.EMPTY_LABEL.HEADER}
         </h3>
         <div className="empty-conatiner-label text-center">
-          {textConstants.EMPTY_LABEL.DETAILS}
+          {allTextConstants.EMPTY_LABEL.DETAILS}
         </div>
       </article>
     </div>
