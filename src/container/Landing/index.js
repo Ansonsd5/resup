@@ -9,11 +9,13 @@ import commonFunc from "../../action";
 import { addTemplate } from "../../utils/templateSlice";
 import allTextConstants from "../../utils/textConstants";
 import "./index.scss";
+import Spinner from "../../components/Spinner";
+import { togglePopup } from "../../utils/appSlice";
 const Landing = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form.formData);
   const templateData = useSelector((state) => state.template);
-  const [loader,setLoader] = useState(false);
+const popup = useSelector((state)=> state.app);
 
   const onChangeEvent = (e, content) => {
     let inputValue = "";
@@ -42,7 +44,7 @@ const Landing = () => {
 
   useEffect(()=>{
     console.log("after apidatd comes");
-    setLoader(false);
+  
         },[templateData])
 
   const renderFormFields = (content) => {
@@ -60,8 +62,7 @@ const Landing = () => {
 
   const apiCall = async (searchQuery) => {
 
-    setLoader(!loader);
-    console.log('loader now',loader);
+    
     try {
       const getData = await commonFunc.makeApiCall(searchQuery);
       const dataToFilter = getData.choices[0].message.content;
@@ -70,12 +71,13 @@ const Landing = () => {
 
       if (!cleanData) return;
       dispatch(addTemplate(cleanData));
+      dispatch(togglePopup());
       console.log("dispatch sucess");
     } catch (error) {
       console.error("Error occurred:", error);
     }
     
-    console.log(loader,"loader ater");  };
+    };
 
   const validForm = (formData) => {
 
@@ -92,11 +94,11 @@ const Landing = () => {
     }
   };
 
-  useEffect(()=>{
-  console.log(getComputedStyle);
-  },[])
+
 
   const generateTemplate = () => {
+
+    dispatch(togglePopup());
     let personalDeatils = Object.keys(formData).map(
       (key) => ` ${key} is ${formData[key]} `
     );
@@ -105,8 +107,10 @@ const Landing = () => {
     apiCall(searchQuery);
   };
 
+
   return (
-    <div className="sm:grid sm:mx-4 sm:grid-cols-2 grid-row px-4">
+    <div className="sm:grid sm:mx-4 sm:grid-cols-2 grid-row px-4" >
+  {popup.popupOpen && <div style={{position:'absolute'}}><Spinner /></div>}
       <article className="input-conatiner ">
         <span className="font-bold block">Enter Details</span>
         <span>Enter your details to generate template</span>
@@ -124,6 +128,7 @@ const Landing = () => {
         >
           Generate
         </Button>
+        
       </article>
       <TemplateContainer templateData={templateData} />
       <article></article>
