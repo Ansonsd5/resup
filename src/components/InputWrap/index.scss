@@ -39,6 +39,20 @@
             color: $COLOR-LIGHT_TEXT;
             
         }
+
+        span::after{
+            
+        }
+
+        [data-years='years']::after{
+            content: 'years';
+            position: absolute;
+            top: 55%;
+            left: 60px;
+            color: $COLOR-INPUT-TEXT;
+            font-size: 18px;
+            font-weight: 500;
+              }
         
     }
 
