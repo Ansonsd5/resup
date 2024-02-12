@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Button from "../../components/Button";
 import Textbox from "../../components/TextBox";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,9 +8,9 @@ import TemplateContainer from "../../components/TemplateContainer";
 import commonFunc from "../../action";
 import { addTemplate } from "../../utils/templateSlice";
 import allTextConstants from "../../utils/textConstants";
-import "./index.scss";
 import Spinner from "../../components/Spinner";
 import { togglePopup } from "../../utils/appSlice";
+import "./index.scss";
 const Landing = () => {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.form.formData);
